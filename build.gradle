@@ -119,6 +119,7 @@ ext {
     bintrayVersion = "$version"
 }
 
+
 // ========== COMBO TEST REPORT - View the combined/merged report at: [project_root]/build/reports/tests/index.html
 apply from: file(rootProject.projectDir.getAbsolutePath() + '/gradle/junitComboTestReport.gradle')
 
