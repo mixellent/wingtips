@@ -57,12 +57,12 @@ public class SpanCustomizingApplicationEventListener implements ApplicationEvent
 
     @Override
     public void onEvent(RequestEvent event) {
+        ContainerRequest request = event.getContainerRequest();
         // We only care about the REQUEST_MATCHED event.
         if (event.getType() != REQUEST_MATCHED) {
             return;
         }
 
-        ContainerRequest request = event.getContainerRequest();
         // Setting the http.route as a setProperty() on this ContainerRequest will bubble out to the
         //      HttpServletRequest as a request attribute.
         request.setProperty(KnownZipkinTags.HTTP_ROUTE, route(request));
